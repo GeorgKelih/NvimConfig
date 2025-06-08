@@ -3,3 +3,5 @@
 -- Add any additional options here
 vim.opt.wrap = true
 vim.opt.scrolloff = 15
+vim.opt.spell = true
+vim.opt.spelllang = { "de", "en" }
