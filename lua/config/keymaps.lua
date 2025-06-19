@@ -3,20 +3,17 @@
 -- Add any additional keymaps here
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit Terminal Mode (esc)" })
 
-vim.keymap.set("n", "<leader>r", function()
-  -- Save the current file
-  vim.cmd("w")
+-- Debug keymaps
 
-  -- Move to the split below (assuming it's a terminal)
-  vim.cmd("wincmd j")
-
-  -- Send Up + Enter to terminal to run last command
-  -- Must be sent as terminal input
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Up><CR>", true, false, true), "t", false)
-
-  -- Delay slightly to allow command to run before switching
-  vim.defer_fn(function()
-    -- Move back to the original window
-    vim.cmd("wincmd k")
-  end, 100) -- 100 ms delay
-end, { desc = "Save, run last terminal command" })
+vim.keymap.set("n", "<F6>", function()
+  require("dap").continue()
+end, { desc = " Debug: Start/Continue" })
+vim.keymap.set("n", "<F7>", function()
+  require("dap").step_over()
+end, { desc = " Debug: Step Over" })
+vim.keymap.set("n", "<F8>", function()
+  require("dap").step_into()
+end, { desc = " Debug: Step Into" })
+vim.keymap.set("n", "<F9>", function()
+  require("dap").step_out()
+end, { desc = " Debug: Step Out" })
