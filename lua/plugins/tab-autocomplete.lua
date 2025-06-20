@@ -1,6 +1,7 @@
 return {
   {
     "saghen/blink.cmp",
+    version = "v1.3.1",
     opts = function(_, opts)
       opts.keymap = {
         preset = "super-tab", -- This preset should handle fallback intelligently

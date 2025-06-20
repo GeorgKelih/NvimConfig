@@ -17,3 +17,11 @@ end, { desc = " Debug: Step Into" })
 vim.keymap.set("n", "<F9>", function()
   require("dap").step_out()
 end, { desc = " Debug: Step Out" })
+
+-- Keymaps for call hierarchy
+vim.keymap.set("n", "<leader>ci", function()
+  vim.lsp.buf.incoming_calls()
+end, { desc = "Incoming Calls" })
+vim.keymap.set("n", "<leader>co", function()
+  vim.lsp.buf.outgoing_calls()
+end, { desc = "Outgoing Calls" })
